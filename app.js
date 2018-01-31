@@ -1,7 +1,7 @@
 const express = require("express");
 const moment = require("moment");
 const app = express();
-const PORT = process.argv[2];
+const PORT = process.argv[2] || 3000;
 
 app.get("/:date", (req, res) => {
   try {
@@ -18,6 +18,6 @@ app.get("/:date", (req, res) => {
   }
 });
 
-app.listen(PORT || 3000, () => {
+app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });

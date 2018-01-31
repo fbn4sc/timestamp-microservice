@@ -2,10 +2,21 @@ const express = require("express");
 const app = express();
 const PORT = process.argv[2];
 
-app.get("/", (req, res) => {
-  res.end("Hello.");
+app.get("/:date", (req, res) => {
+  try {
+    const date = new Date(req.params.date);
+
+    const response = {
+      unix: date.getTime() / 1000 || null,
+      natural: date || null
+    };
+
+    res.json(response);
+  } catch (err) {
+    res.end(err);
+  }
 });
 
-app.listen(PORT, () => {
+app.listen(5000, () => {
   console.log(`Server listening on port ${PORT}`);
 });

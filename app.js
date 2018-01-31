@@ -1,4 +1,5 @@
 const express = require("express");
+const moment = require("moment");
 const app = express();
 const PORT = process.argv[2];
 
@@ -8,7 +9,7 @@ app.get("/:date", (req, res) => {
 
     const response = {
       unix: date.getTime() / 1000 || null,
-      natural: date || null
+      natural: moment(date).format("MMMM DD, YYYY") || null
     };
 
     res.json(response);

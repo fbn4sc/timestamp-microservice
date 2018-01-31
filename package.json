@@ -11,7 +11,8 @@
   "author": "Fábio Nascimento",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "moment": "^2.20.1"
   },
   "devDependencies": {
     "nodemon": "^1.14.11"
